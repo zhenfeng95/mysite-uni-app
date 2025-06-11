@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "设置",
+  "usingComponents": {
+    "u-navbar": "/uni_modules/uview-ui/components/u-navbar/u-navbar",
+    "u-cell-group": "/uni_modules/uview-ui/components/u-cell-group/u-cell-group",
+    "u-cell": "/uni_modules/uview-ui/components/u-cell/u-cell",
+    "u-action-sheet": "/uni_modules/uview-ui/components/u-action-sheet/u-action-sheet",
+    "u-modal": "/uni_modules/uview-ui/components/u-modal/u-modal",
+    "u-input": "/uni_modules/uview-ui/components/u-input/u-input",
+    "u-picker": "/uni_modules/uview-ui/components/u-picker/u-picker"
+  }
+}

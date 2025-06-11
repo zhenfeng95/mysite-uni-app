@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "mescroll-top": "/uni_modules/mescroll-uni/components/mescroll-uni/components/mescroll-top"
+  }
+}

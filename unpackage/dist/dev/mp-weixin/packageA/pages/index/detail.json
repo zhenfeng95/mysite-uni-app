@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "详情",
+  "usingComponents": {
+    "u-navbar": "/uni_modules/uview-ui/components/u-navbar/u-navbar",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "zero-markdown-view": "/packageA/uni_modules/zero-markdown-view/components/zero-markdown-view/zero-markdown-view",
+    "u-popup": "/uni_modules/uview-ui/components/u-popup/u-popup",
+    "u-avatar": "/uni_modules/uview-ui/components/u-avatar/u-avatar",
+    "u-button": "/uni_modules/uview-ui/components/u-button/u-button"
+  }
+}

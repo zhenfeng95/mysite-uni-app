@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "c-card": "/components/card/card",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u-gap": "/uni_modules/uview-ui/components/u-gap/u-gap"
+  }
+}

@@ -1,0 +1,1 @@
+<view class="data-v-0b3238fe"><u-navbar vue-id="52760da5-1" title="足迹" backIconColor="#fff" titleColor="#fff" background="{{background}}" class="data-v-0b3238fe" bind:__l="__l"></u-navbar><c-list vue-id="52760da5-2" class="data-v-0b3238fe" bind:__l="__l"></c-list></view>

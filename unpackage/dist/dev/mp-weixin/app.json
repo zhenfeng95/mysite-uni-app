@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/search",
+    "pages/mine/index",
+    "pages/object/index",
+    "pages/mine/heart",
+    "pages/mine/foot",
+    "pages/mine/setting",
+    "pages/login/login",
+    "pages/object/objectList",
+    "pages/mine/message",
+    "pages/mine/feedback"
+  ],
+  "subPackages": [
+    {
+      "root": "packageA",
+      "pages": [
+        "pages/index/detail"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom",
+    "navigationBarTitleText": "问博",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#3D3D3D",
+    "selectedColor": "#39CCCC",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/tab/index.png",
+        "selectedIconPath": "static/tab/index_tab.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/object/index",
+        "iconPath": "static/tab/object.png",
+        "selectedIconPath": "static/tab/object_tab.png",
+        "text": "分类"
+      }
+    ]
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {}
+}

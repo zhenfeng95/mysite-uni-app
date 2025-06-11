@@ -1,0 +1,10 @@
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["components/list/list"],{"0afe":function(n,t,e){"use strict";e.r(t);var o=e("2892"),u=e.n(o);for(var i in o)["default"].indexOf(i)<0&&function(n){e.d(t,n,(function(){return o[n]}))}(i);t["default"]=u.a},2892:function(n,t,e){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var o={props:{blogList:{type:Array,default:function(){return[]}}},data:function(){return{footStyle:{paddingTop:"0rpx"}}},onLoad:function(){},methods:{toDetail:function(n){this.$common.navigateTo("/pages/index/detail?id="+n)}}};t.default=o},"5d0b":function(n,t,e){"use strict";var o=e("c02d"),u=e.n(o);u.a},"73eb":function(n,t,e){"use strict";e.r(t);var o=e("c672"),u=e("0afe");for(var i in u)["default"].indexOf(i)<0&&function(n){e.d(t,n,(function(){return u[n]}))}(i);e("5d0b");var r=e("f0c5"),a=Object(r["a"])(u["default"],o["b"],o["c"],!1,null,"44b897ee",null,!1,o["a"],void 0);t["default"]=a.exports},c02d:function(n,t,e){},c672:function(n,t,e){"use strict";e.d(t,"b",(function(){return u})),e.d(t,"c",(function(){return i})),e.d(t,"a",(function(){return o}));var o={cCard:function(){return e.e("components/card/card").then(e.bind(null,"ea0a"))},uIcon:function(){return Promise.all([e.e("common/vendor"),e.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(e.bind(null,"42b5"))},uGap:function(){return Promise.all([e.e("common/vendor"),e.e("uni_modules/uview-ui/components/u-gap/u-gap")]).then(e.bind(null,"c420"))}},u=function(){var n=this,t=n.$createElement,e=(n._self._c,n.__map(n.blogList,(function(t,e){var o=n.__get_orig(t),u=n.$u.timeFormat(t.createDate,"yyyy-mm-dd");return{$orig:o,g0:u}})));n.$mp.data=Object.assign({},{$root:{l0:e}})},i=[]}}]);
+;(global["webpackJsonp"] = global["webpackJsonp"] || []).push([
+    'components/list/list-create-component',
+    {
+        'components/list/list-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('543d')['createComponent'](__webpack_require__("73eb"))
+        })
+    },
+    [['components/list/list-create-component']]
+]);

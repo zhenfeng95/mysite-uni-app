@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "反馈",
+  "usingComponents": {
+    "u-navbar": "/uni_modules/uview-ui/components/u-navbar/u-navbar",
+    "u-alert": "/uni_modules/uview-ui/components/u-alert/u-alert",
+    "u-gap": "/uni_modules/uview-ui/components/u-gap/u-gap",
+    "u-form": "/uni_modules/uview-ui/components/u-form/u-form",
+    "u-form-item": "/uni_modules/uview-ui/components/u-form-item/u-form-item",
+    "u-input": "/uni_modules/uview-ui/components/u-input/u-input",
+    "u-button": "/uni_modules/uview-ui/components/u-button/u-button"
+  }
+}
