@@ -1210,6 +1210,6 @@
   font-weight: 700;
 }
 .toptem.data-v-16ec29fb {
-  padding: 8vw 0 20rpx;
+  padding: 20rpx 0;
 }
 

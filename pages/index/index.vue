@@ -1,27 +1,51 @@
 <template>
-    <view class>
+    <view class="container">
         <!-- <u-navbar title="首页" :leftIcon="''" :placeholder="true" :backTextStyle="backTextColor" bgcolor="#000000">
             <view class="search-wrap" @click="toSearch">
                 <u-search height="56" :showAction="false"></u-search>
             </view>
         </u-navbar>-->
 
-        <mescroll-uni ref="mescrollRef" :down="downOption" :up="upOption" @down="onRefresh" @up="onLoadMore">
-            <view class="toptem">
-                <view>
-                    <u-swiper :list="swiper" keyName="midImg" border-radius="0" :effect3d="true"></u-swiper>
+        <u-navbar :back="false" :backTextStyle="backTextColor" bgcolor="#000000">
+            <template #left>
+                <!-- 这里是空的，确保不会显示箭头，也不会占位 -->
+                <view></view>
+            </template>
+            <template #center>
+                <view class="search-wrap">
+                    <!-- <u-search height="56" :showAction="false"></u-search> -->
+                    <u-search
+                        placeholder="请输入博客名称搜索"
+                        v-model="keyword"
+                        :actionStyle="actionStyle"
+                        @search="search"
+                        @custom="search"
+                        @clear="search"
+                    ></u-search>
                 </view>
-                <!-- <u-gap bgcolor="#ededed" height="20"></u-gap> -->
-                <c-list :blogList="blogList"></c-list>
-            </view>
-        </mescroll-uni>
+            </template>
+        </u-navbar>
+
+        <view class="main">
+            <mescroll-uni ref="mescrollRef" :top="100" :down="downOption" :up="upOption" @down="onRefresh" @up="onLoadMore">
+                <view class="toptem">
+                    <view>
+                        <u-swiper :list="swiper" keyName="midImg" border-radius="0" :effect3d="true"></u-swiper>
+                    </view>
+                    <!-- <u-gap bgcolor="#ededed" height="20"></u-gap> -->
+                    <c-list :blogList="blogList"></c-list>
+                </view>
+            </mescroll-uni>
+        </view>
     </view>
 </template>
 
 <script>
 import { getBanners, getBlogs } from "@/api";
+import uNavbar from "../../uni_modules/uview-ui/components/u-navbar/u-navbar.vue";
 
 export default {
+    components: { uNavbar },
     data() {
         return {
             swiper: [
@@ -44,6 +68,9 @@ export default {
             backTextColor: {
                 color: "#ffffff",
             },
+            actionStyle: {
+                color: "#39CCCC",
+            },
             page: 1,
             limit: 10,
             blogList: [],
@@ -57,6 +84,7 @@ export default {
                     size: 10, //每页数据条数,默认10
                 },
             },
+            keyword: "",
         };
     },
     onLoad() {},
@@ -72,8 +100,13 @@ export default {
                 }
             });
         },
-        async initBlogs(page = this.page, limit = this.limit) {
-            await getBlogs(page, limit).then((res) => {
+        async initBlogs() {
+            let data = {};
+            data.page = this.page;
+            data.limit = this.limit;
+            data.title = this.keyword;
+            data.categoryid = -1;
+            await getBlogs(data).then((res) => {
                 if (res.code == 0) {
                     this.blogList = res.data.rows;
                 } else {
@@ -84,6 +117,11 @@ export default {
                     });
                 }
             });
+        },
+
+        search() {
+            this.page = 1;
+            this.initBlogs();
         },
 
         toSearch() {
@@ -104,9 +142,13 @@ export default {
             mescroll.endSuccess(); // 结束刷新
         },
         onLoadMore(mescroll) {
-            const pageNum = mescroll.num;
             const pageSize = mescroll.size;
-            getBlogs(pageNum, pageSize).then((res) => {
+            let data = {};
+            data.page = mescroll.num;
+            data.limit = pageSize;
+            data.title = this.keyword;
+            data.categoryid = -1;
+            getBlogs(data).then((res) => {
                 if (res.code == 0) {
                     const newData = res.data.rows;
                     if (newData.length < pageSize) {
@@ -129,9 +171,25 @@ export default {
 </script>
 
 <style lang="scss">
+/* #ifdef H5 */
 .search-wrap {
-    margin: 0 30rpx 0 10rpx;
-    flex: 1;
+    margin-top: 20rpx;
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    padding: 0 30rpx;
+}
+/* #endif */
+
+/* #ifndef H5 */
+.search-wrap {
+    margin-left: -200rpx;
+    width: 500rpx;
+}
+/* #endif */
+
+.main {
+    margin-top: 120rpx; /* 避开头部 */
 }
 
 .u-body-item {
@@ -154,21 +212,13 @@ export default {
 
 /* #ifdef H5 */
 .toptem {
-    padding: 20rpx 0;
+    padding: 20rpx 0 20rpx;
 }
 /* #endif */
 
 /* #ifndef H5 */
 .toptem {
-    padding: 8vw 0 20rpx;
+    padding: 40rpx 0 20rpx;
 }
 /* #endif */
-
-/*通过fixed固定mescroll的高度*/
-.mescroll {
-    position: fixed;
-    top: 44px;
-    bottom: 0;
-    height: auto;
-}
 </style>

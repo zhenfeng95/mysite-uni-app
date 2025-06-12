@@ -101,13 +101,13 @@ var components
 try {
   components = {
     uNavbar: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-navbar/u-navbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-navbar/u-navbar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-navbar/u-navbar.vue */ 274))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-navbar/u-navbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-navbar/u-navbar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-navbar/u-navbar.vue */ 290))
     },
     mescrollUni: function () {
-      return Promise.all(/*! import() | uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni")]).then(__webpack_require__.bind(null, /*! @/uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni.vue */ 254))
+      return Promise.all(/*! import() | uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni")]).then(__webpack_require__.bind(null, /*! @/uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni.vue */ 262))
     },
     cList: function () {
-      return __webpack_require__.e(/*! import() | components/list/list */ "components/list/list").then(__webpack_require__.bind(null, /*! @/components/list/list.vue */ 267))
+      return __webpack_require__.e(/*! import() | components/list/list */ "components/list/list").then(__webpack_require__.bind(null, /*! @/components/list/list.vue */ 283))
     },
   }
 } catch (e) {
@@ -200,6 +200,7 @@ var _api = __webpack_require__(/*! @/api */ 166);
 //
 //
 //
+//
 var _default = {
   data: function data() {
     return {
@@ -221,6 +222,10 @@ var _default = {
       page: 1,
       limit: 10,
       blogList: [],
+      downOption: {
+        // 禁用下拉刷新
+        use: false
+      },
       upOption: {
         auto: false,
         // 页面一进入自动加载
@@ -249,9 +254,11 @@ var _default = {
     },
     initBlogs: function initBlogs() {
       var _this = this;
-      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.page;
-      var limit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.limit;
-      (0, _api.getBlogs)(page, limit, this.categoryid).then(function (res) {
+      var data = {};
+      data.page = this.page;
+      data.limit = this.limit;
+      data.categoryid = this.categoryid;
+      (0, _api.getBlogs)(data).then(function (res) {
         if (res.code == 0) {
           _this.blogList = res.data.rows;
         } else {
@@ -265,9 +272,12 @@ var _default = {
     },
     onLoadMore: function onLoadMore(mescroll) {
       var _this2 = this;
-      var pageNum = mescroll.num;
       var pageSize = mescroll.size;
-      (0, _api.getBlogs)(pageNum, pageSize, this.categoryid).then(function (res) {
+      var data = {};
+      data.page = mescroll.num;
+      data.limit = pageSize;
+      data.categoryid = this.categoryid;
+      (0, _api.getBlogs)(data).then(function (res) {
         if (res.code == 0) {
           var newData = res.data.rows;
           if (newData.length < pageSize) {

@@ -10,12 +10,8 @@ export async function getBanners() {
 /**
  * 获取博客列表数据
  */
-export async function getBlogs(page = 1, limit = 10, categoryid = -1) {
-    return await Api.get('/api/blog', {
-        page,
-        limit,
-        categoryid
-    });
+export async function getBlogs(data) {
+    return await Api.get('/api/blog', data);
 }
 
 /**

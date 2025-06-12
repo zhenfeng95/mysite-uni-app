@@ -100,14 +100,20 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
+    uNavbar: function () {
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-navbar/u-navbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-navbar/u-navbar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-navbar/u-navbar.vue */ 290))
+    },
+    uSearch: function () {
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-search/u-search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-search/u-search")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-search/u-search.vue */ 254))
+    },
     mescrollUni: function () {
-      return Promise.all(/*! import() | uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni")]).then(__webpack_require__.bind(null, /*! @/uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni.vue */ 254))
+      return Promise.all(/*! import() | uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni")]).then(__webpack_require__.bind(null, /*! @/uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni.vue */ 262))
     },
     uSwiper: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-swiper/u-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-swiper/u-swiper")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-swiper/u-swiper.vue */ 553))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-swiper/u-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-swiper/u-swiper")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-swiper/u-swiper.vue */ 275))
     },
     cList: function () {
-      return __webpack_require__.e(/*! import() | components/list/list */ "components/list/list").then(__webpack_require__.bind(null, /*! @/components/list/list.vue */ 267))
+      return __webpack_require__.e(/*! import() | components/list/list */ "components/list/list").then(__webpack_require__.bind(null, /*! @/components/list/list.vue */ 283))
     },
   }
 } catch (e) {
@@ -195,7 +201,37 @@ var _api = __webpack_require__(/*! @/api */ 166);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var uNavbar = function uNavbar() {
+  Promise.all(/*! require.ensure | uni_modules/uview-ui/components/u-navbar/u-navbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-navbar/u-navbar")]).then((function () {
+    return resolve(__webpack_require__(/*! ../../uni_modules/uview-ui/components/u-navbar/u-navbar.vue */ 290));
+  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+};
 var _default = {
+  components: {
+    uNavbar: uNavbar
+  },
   data: function data() {
     return {
       swiper: [{
@@ -214,6 +250,9 @@ var _default = {
       backTextColor: {
         color: "#ffffff"
       },
+      actionStyle: {
+        color: "#39CCCC"
+      },
       page: 1,
       limit: 10,
       blogList: [],
@@ -229,7 +268,9 @@ var _default = {
           //当前页 默认0,回调之前会加1; 即callback(page)会从1开始
           size: 10 //每页数据条数,默认10
         }
-      }
+      },
+
+      keyword: ""
     };
   },
   onLoad: function onLoad() {},
@@ -247,18 +288,20 @@ var _default = {
       });
     },
     initBlogs: function initBlogs() {
-      var _arguments = arguments,
-        _this2 = this;
+      var _this2 = this;
       return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-        var page, limit;
+        var data;
         return _regenerator.default.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                page = _arguments.length > 0 && _arguments[0] !== undefined ? _arguments[0] : _this2.page;
-                limit = _arguments.length > 1 && _arguments[1] !== undefined ? _arguments[1] : _this2.limit;
-                _context.next = 4;
-                return (0, _api.getBlogs)(page, limit).then(function (res) {
+                data = {};
+                data.page = _this2.page;
+                data.limit = _this2.limit;
+                data.title = _this2.keyword;
+                data.categoryid = -1;
+                _context.next = 7;
+                return (0, _api.getBlogs)(data).then(function (res) {
                   if (res.code == 0) {
                     _this2.blogList = res.data.rows;
                   } else {
@@ -269,13 +312,17 @@ var _default = {
                     });
                   }
                 });
-              case 4:
+              case 7:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
       }))();
+    },
+    search: function search() {
+      this.page = 1;
+      this.initBlogs();
     },
     toSearch: function toSearch() {
       this.$common.navigateTo("/pages/index/search");
@@ -310,9 +357,13 @@ var _default = {
     },
     onLoadMore: function onLoadMore(mescroll) {
       var _this4 = this;
-      var pageNum = mescroll.num;
       var pageSize = mescroll.size;
-      (0, _api.getBlogs)(pageNum, pageSize).then(function (res) {
+      var data = {};
+      data.page = mescroll.num;
+      data.limit = pageSize;
+      data.title = this.keyword;
+      data.categoryid = -1;
+      (0, _api.getBlogs)(data).then(function (res) {
         if (res.code == 0) {
           var newData = res.data.rows;
           if (newData.length < pageSize) {

@@ -1,8 +1,9 @@
 <template>
     <view>
         <u-navbar :title="categoryname" backIconColor="#fff" titleColor="#fff" :bgcolor="background" :placeholder="true" :autoBack="true"></u-navbar>
-        <mescroll-uni ref="mescrollRef" :up="upOption" @up="onLoadMore">
-            <view>
+
+        <mescroll-uni ref="mescrollRef" :down="downOption" :top="100" :up="upOption" @up="onLoadMore">
+            <view class>
                 <c-list :blogList="blogList"></c-list>
             </view>
         </mescroll-uni>
@@ -48,6 +49,10 @@ export default {
             page: 1,
             limit: 10,
             blogList: [],
+            downOption: {
+                // 禁用下拉刷新
+                use: false,
+            },
             upOption: {
                 auto: false, // 页面一进入自动加载
                 page: {
@@ -71,8 +76,12 @@ export default {
         onPageScroll(e) {
             this.scrollTop = e.scrollTop;
         },
-        initBlogs(page = this.page, limit = this.limit) {
-            getBlogs(page, limit, this.categoryid).then((res) => {
+        initBlogs() {
+            let data = {};
+            data.page = this.page;
+            data.limit = this.limit;
+            data.categoryid = this.categoryid;
+            getBlogs(data).then((res) => {
                 if (res.code == 0) {
                     this.blogList = res.data.rows;
                 } else {
@@ -85,9 +94,12 @@ export default {
             });
         },
         onLoadMore(mescroll) {
-            const pageNum = mescroll.num;
             const pageSize = mescroll.size;
-            getBlogs(pageNum, pageSize, this.categoryid).then((res) => {
+            let data = {};
+            data.page = mescroll.num;
+            data.limit = pageSize;
+            data.categoryid = this.categoryid;
+            getBlogs(data).then((res) => {
                 if (res.code == 0) {
                     const newData = res.data.rows;
                     if (newData.length < pageSize) {
@@ -111,10 +123,11 @@ export default {
 
 <style lang="scss" scoped>
 /*通过fixed固定mescroll的高度*/
+
 .mescroll {
     position: fixed;
     top: 44px;
     bottom: 0;
-    height: auto;
+    height: auto; /*如设置bottom:50px,则需height:auto才能生效*/
 }
 </style>

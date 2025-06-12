@@ -4,7 +4,6 @@
     "pages/index/search",
     "pages/mine/index",
     "pages/object/index",
-    "pages/index/detail",
     "pages/mine/heart",
     "pages/mine/foot",
     "pages/mine/setting",
@@ -13,7 +12,14 @@
     "pages/mine/message",
     "pages/mine/feedback"
   ],
-  "subPackages": [],
+  "subPackages": [
+    {
+      "root": "packageA",
+      "pages": [
+        "pages/index/detail"
+      ]
+    }
+  ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom",
@@ -41,5 +47,6 @@
       }
     ]
   },
+  "lazyCodeLoading": "requiredComponents",
   "usingComponents": {}
 }

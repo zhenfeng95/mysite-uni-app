@@ -1,5 +1,11 @@
 <template>
     <view class="toptem">
+        <u-navbar :bgcolor="background" title="分类" :placeholder="true" :autoBack="true">
+            <template #left>
+                <!-- 这里是空的，确保不会显示箭头，也不会占位 -->
+                <view></view>
+            </template>
+        </u-navbar>
         <u-cell-group>
             <u-cell
                 v-for="(item,index) in blogTypeList"
@@ -88,15 +94,7 @@ export default {
 .weight {
     font-weight: 700;
 }
-/* #ifdef H5 */
 .toptem {
     padding: 20rpx 0;
 }
-/* #endif */
-
-/* #ifndef H5 */
-.toptem {
-    padding: 8vw 0 20rpx;
-}
-/* #endif */
 </style>

@@ -1204,8 +1204,12 @@
   min-height: 52px;
 }
 .search-wrap {
-  margin: 0 30rpx 0 10rpx;
-  flex: 1;
+  margin-left: -200rpx;
+  width: 500rpx;
+}
+.main {
+  margin-top: 120rpx;
+  /* 避开头部 */
 }
 .u-body-item {
   font-size: 32rpx;
@@ -1223,13 +1227,6 @@
   height: 88rpx;
 }
 .toptem {
-  padding: 8vw 0 20rpx;
-}
-/*通过fixed固定mescroll的高度*/
-.mescroll {
-  position: fixed;
-  top: 44px;
-  bottom: 0;
-  height: auto;
+  padding: 40rpx 0 20rpx;
 }
 

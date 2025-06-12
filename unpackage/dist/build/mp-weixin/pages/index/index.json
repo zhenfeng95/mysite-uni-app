@@ -1,9 +1,12 @@
 {
   "navigationBarTitleText": "首页",
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white",
   "usingComponents": {
+    "u-navbar": "/uni_modules/uview-ui/components/u-navbar/u-navbar",
+    "u-search": "/uni_modules/uview-ui/components/u-search/u-search",
     "mescroll-uni": "/uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni",
     "u-swiper": "/uni_modules/uview-ui/components/u-swiper/u-swiper",
-    "u-gap": "/uni_modules/uview-ui/components/u-gap/u-gap",
     "c-list": "/components/list/list"
   }
 }

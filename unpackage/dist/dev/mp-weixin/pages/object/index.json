@@ -1,6 +1,9 @@
 {
   "navigationBarTitleText": "分类",
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white",
   "usingComponents": {
+    "u-navbar": "/uni_modules/uview-ui/components/u-navbar/u-navbar",
     "u-cell-group": "/uni_modules/uview-ui/components/u-cell-group/u-cell-group",
     "u-cell": "/uni_modules/uview-ui/components/u-cell/u-cell",
     "u-back-top": "/uni_modules/uview-ui/components/u-back-top/u-back-top"
