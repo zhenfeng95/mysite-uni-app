@@ -7,15 +7,15 @@
 
 <script>
 export default {
-    data() {
+    data () {
         return {
             background: {
-                "background-image": "linear-gradient(45deg, #2BC3C8, #84E7B9)",
-            },
+                'background-image': 'linear-gradient(45deg, #2BC3C8, #84E7B9)'
+            }
         };
     },
-    onLoad() {},
-    methods: {},
+    onLoad () {},
+    methods: {}
 };
 </script>
 

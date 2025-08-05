@@ -101,13 +101,13 @@ var components
 try {
   components = {
     uNavbar: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-navbar/u-navbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-navbar/u-navbar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-navbar/u-navbar.vue */ 290))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-navbar/u-navbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-navbar/u-navbar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-navbar/u-navbar.vue */ 254))
     },
     mescrollUni: function () {
-      return Promise.all(/*! import() | uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni")]).then(__webpack_require__.bind(null, /*! @/uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni.vue */ 262))
+      return Promise.all(/*! import() | uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni")]).then(__webpack_require__.bind(null, /*! @/uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni.vue */ 270))
     },
     cList: function () {
-      return __webpack_require__.e(/*! import() | components/list/list */ "components/list/list").then(__webpack_require__.bind(null, /*! @/components/list/list.vue */ 283))
+      return __webpack_require__.e(/*! import() | components/list/list */ "components/list/list").then(__webpack_require__.bind(null, /*! @/components/list/list.vue */ 291))
     },
   }
 } catch (e) {
@@ -205,20 +205,20 @@ var _default = {
   data: function data() {
     return {
       background: {
-        "background-image": "linear-gradient(45deg, #2BC3C8, #84E7B9)"
+        'background-image': 'linear-gradient(45deg, #2BC3C8, #84E7B9)'
       },
       // top
       scrollTop: 0,
-      modeTop: "circle",
+      modeTop: 'circle',
       bottomTop: 200,
       rightTop: 40,
       top: 600,
-      iconTop: "arrow-up",
+      iconTop: 'arrow-up',
       iconStyleTop: {
-        color: "#ffffff",
-        fontSize: "30rpx"
+        color: '#ffffff',
+        fontSize: '30rpx'
       },
-      tips: "顶部",
+      tips: '顶部',
       page: 1,
       limit: 10,
       blogList: [],
@@ -231,13 +231,13 @@ var _default = {
         // 页面一进入自动加载
         page: {
           num: 1,
-          //当前页 默认0,回调之前会加1; 即callback(page)会从1开始
-          size: 10 //每页数据条数,默认10
+          // 当前页 默认0,回调之前会加1; 即callback(page)会从1开始
+          size: 10 // 每页数据条数,默认10
         }
       },
 
       categoryid: 0,
-      categoryname: "分类列表"
+      categoryname: '分类列表'
     };
   },
   onLoad: function onLoad(options) {
@@ -264,7 +264,7 @@ var _default = {
         } else {
           uni.showToast({
             title: res.msg,
-            icon: "none",
+            icon: 'none',
             duration: 1500
           });
         }
@@ -290,7 +290,7 @@ var _default = {
         } else {
           uni.showToast({
             title: res.msg,
-            icon: "none",
+            icon: 'none',
             duration: 1500
           });
         }

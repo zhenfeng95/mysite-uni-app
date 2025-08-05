@@ -101,7 +101,7 @@ var components
 try {
   components = {
     uNavbar: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-navbar/u-navbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-navbar/u-navbar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-navbar/u-navbar.vue */ 290))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-navbar/u-navbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-navbar/u-navbar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-navbar/u-navbar.vue */ 254))
     },
     uCellGroup: function () {
       return Promise.all(/*! import() | uni_modules/uview-ui/components/u-cell-group/u-cell-group */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-cell-group/u-cell-group")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-cell-group/u-cell-group.vue */ 315))
@@ -214,20 +214,20 @@ var _default = {
   data: function data() {
     return {
       background: {
-        "background-image": "linear-gradient(45deg, #2BC3C8, #84E7B9)"
+        'background-image': 'linear-gradient(45deg, #2BC3C8, #84E7B9)'
       },
       // top
       scrollTop: 0,
-      modeTop: "circle",
+      modeTop: 'circle',
       bottomTop: 200,
       rightTop: 40,
       top: 600,
-      iconTop: "arrow-up",
+      iconTop: 'arrow-up',
       iconStyleTop: {
-        color: "#ffffff",
-        fontSize: "30rpx"
+        color: '#ffffff',
+        fontSize: '30rpx'
       },
-      tips: "顶部",
+      tips: '顶部',
       blogTypeList: []
     };
   },
@@ -239,7 +239,7 @@ var _default = {
       } else {
         uni.showToast({
           title: res.msg,
-          icon: "none",
+          icon: 'none',
           duration: 1500
         });
       }
@@ -250,7 +250,7 @@ var _default = {
       if (!item.articleCount) {
         return;
       }
-      this.$common.navigateTo("/pages/object/objectList?id=" + item.id + "&name=" + item.name);
+      this.$common.navigateTo('/pages/object/objectList?id=' + item.id + '&name=' + item.name);
     },
     // 回到顶部
     onPageScroll: function onPageScroll(e) {

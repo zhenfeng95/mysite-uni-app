@@ -101,7 +101,7 @@ var components
 try {
   components = {
     uNavbar: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-navbar/u-navbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-navbar/u-navbar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-navbar/u-navbar.vue */ 290))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-navbar/u-navbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-navbar/u-navbar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-navbar/u-navbar.vue */ 254))
     },
     uInput: function () {
       return Promise.all(/*! import() | uni_modules/uview-ui/components/u-input/u-input */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-input/u-input")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-input/u-input.vue */ 365))
@@ -217,10 +217,10 @@ var _default = {
   data: function data() {
     return {
       background: {
-        "background-image": "linear-gradient(45deg, #2BC3C8, #84E7B9)"
+        'background-image': 'linear-gradient(45deg, #2BC3C8, #84E7B9)'
       },
-      mobile: "",
-      password: ""
+      mobile: '',
+      password: ''
     };
   },
   onLoad: function onLoad() {},
@@ -228,27 +228,27 @@ var _default = {
     inputStyle: function inputStyle() {
       var style = {};
       if (this.mobile) {
-        style.color = "#fff";
-        style.backgroundColor = "#2BC3C8";
+        style.color = '#fff';
+        style.backgroundColor = '#2BC3C8';
       }
       return style;
     }
   },
   methods: {
     back: function back() {
-      this.$common.switchTabTo("/pages/index/index");
+      this.$common.switchTabTo('/pages/index/index');
     },
     submit: function submit() {
       if (!this.mobile) {
         return false;
       }
       if (!this.$common.isPhoneNumber(this.mobile)) {
-        return this.$common.errorToShow("手机号码错误");
+        return this.$common.errorToShow('手机号码错误');
       }
       if (!this.password) {
-        return this.$common.errorToShow("请输入账号密码");
+        return this.$common.errorToShow('请输入账号密码');
       }
-      this.$common.successToShow("登录成功");
+      this.$common.successToShow('登录成功');
     }
   }
 };

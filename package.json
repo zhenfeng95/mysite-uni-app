@@ -13,5 +13,16 @@
             "前端组件",
             "通用组件"
         ]
+    },
+    "scripts": {
+        "lint": "eslint --ext vue --ext js pages --fix"
+    },
+    "devDependencies": {
+        "eslint": "^7.25.0",
+        "eslint-config-standard": "^16.0.2",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.1.0",
+        "eslint-plugin-vue": "^7.9.0"
     }
 }

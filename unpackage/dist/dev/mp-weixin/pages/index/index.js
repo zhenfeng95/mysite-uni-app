@@ -100,20 +100,20 @@ __webpack_require__.r(__webpack_exports__);
 var components
 try {
   components = {
-    uNavbar: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-navbar/u-navbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-navbar/u-navbar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-navbar/u-navbar.vue */ 290))
+    cNavbar: function () {
+      return __webpack_require__.e(/*! import() | components/navbar/navbar */ "components/navbar/navbar").then(__webpack_require__.bind(null, /*! @/components/navbar/navbar.vue */ 602))
     },
     uSearch: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-search/u-search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-search/u-search")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-search/u-search.vue */ 254))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-search/u-search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-search/u-search")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-search/u-search.vue */ 262))
     },
     mescrollUni: function () {
-      return Promise.all(/*! import() | uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni")]).then(__webpack_require__.bind(null, /*! @/uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni.vue */ 262))
+      return Promise.all(/*! import() | uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni")]).then(__webpack_require__.bind(null, /*! @/uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni.vue */ 270))
     },
     uSwiper: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-swiper/u-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-swiper/u-swiper")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-swiper/u-swiper.vue */ 275))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-swiper/u-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-swiper/u-swiper")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-swiper/u-swiper.vue */ 283))
     },
     cList: function () {
-      return __webpack_require__.e(/*! import() | components/list/list */ "components/list/list").then(__webpack_require__.bind(null, /*! @/components/list/list.vue */ 283))
+      return __webpack_require__.e(/*! import() | components/list/list */ "components/list/list").then(__webpack_require__.bind(null, /*! @/components/list/list.vue */ 291))
     },
   }
 } catch (e) {
@@ -210,48 +210,21 @@ var _api = __webpack_require__(/*! @/api */ 166);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var uNavbar = function uNavbar() {
-  Promise.all(/*! require.ensure | uni_modules/uview-ui/components/u-navbar/u-navbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-navbar/u-navbar")]).then((function () {
-    return resolve(__webpack_require__(/*! ../../uni_modules/uview-ui/components/u-navbar/u-navbar.vue */ 290));
-  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
-};
 var _default = {
-  components: {
-    uNavbar: uNavbar
-  },
   data: function data() {
     return {
       swiper: [{
-        image: "http://static.zzf.net.cn/uploads/mid117479696792302665.jpg",
-        title: "昨夜星辰昨夜风，画楼西畔桂堂东"
+        image: 'http://static.zzf.net.cn/uploads/mid117479696792302665.jpg',
+        title: '昨夜星辰昨夜风，画楼西畔桂堂东'
       }, {
-        image: "http://static.zzf.net.cn/uploads/mid217479709049749982.jpg",
-        title: "身无彩凤双飞翼，心有灵犀一点通"
+        image: 'http://static.zzf.net.cn/uploads/mid217479709049749982.jpg',
+        title: '身无彩凤双飞翼，心有灵犀一点通'
       }, {
-        image: "http://static.zzf.net.cn/uploads/mid317479709246928784.jpg",
-        title: "谁念西风独自凉，萧萧黄叶闭疏窗，沉思往事立残阳"
+        image: 'http://static.zzf.net.cn/uploads/mid317479709246928784.jpg',
+        title: '谁念西风独自凉，萧萧黄叶闭疏窗，沉思往事立残阳'
       }],
       background: {
-        "background-image": "linear-gradient(45deg, #2BC3C8, #84E7B9)"
-      },
-      backTextColor: {
-        color: "#ffffff"
-      },
-      actionStyle: {
-        color: "#39CCCC"
+        'background-image': 'linear-gradient(45deg, #2BC3C8, #84E7B9)'
       },
       page: 1,
       limit: 10,
@@ -265,16 +238,19 @@ var _default = {
         // 页面一进入自动加载
         page: {
           num: 1,
-          //当前页 默认0,回调之前会加1; 即callback(page)会从1开始
-          size: 10 //每页数据条数,默认10
+          // 当前页 默认0,回调之前会加1; 即callback(page)会从1开始
+          size: 10 // 每页数据条数,默认10
         }
       },
 
-      keyword: ""
+      keyword: '',
+      statusBarHeight: 0
     };
   },
   onLoad: function onLoad() {},
   mounted: function mounted() {
+    var systemInfo = uni.getSystemInfoSync();
+    this.statusBarHeight = systemInfo.statusBarHeight;
     this.initBanner();
     this.initBlogs();
   },
@@ -307,7 +283,7 @@ var _default = {
                   } else {
                     uni.showToast({
                       title: res.msg,
-                      icon: "none",
+                      icon: 'none',
                       duration: 1500
                     });
                   }
@@ -320,12 +296,8 @@ var _default = {
         }, _callee);
       }))();
     },
-    search: function search() {
-      this.page = 1;
-      this.initBlogs();
-    },
     toSearch: function toSearch() {
-      this.$common.navigateTo("/pages/index/search");
+      this.$common.navigateTo('/packageA/pages/search/search');
     },
     back: function back() {
       // 首页
@@ -334,7 +306,7 @@ var _default = {
       });
     },
     toDetail: function toDetail() {
-      this.$common.navigateTo("/packageA/pages/index/detail");
+      this.$common.navigateTo('/packageA/pages/index/detail');
     },
     onRefresh: function onRefresh(mescroll) {
       var _this3 = this;
@@ -376,7 +348,7 @@ var _default = {
         } else {
           uni.showToast({
             title: res.msg,
-            icon: "none",
+            icon: 'none',
             duration: 1500
           });
         }

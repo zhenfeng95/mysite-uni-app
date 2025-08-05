@@ -101,7 +101,7 @@ var components
 try {
   components = {
     uNavbar: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-navbar/u-navbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-navbar/u-navbar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-navbar/u-navbar.vue */ 290))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-navbar/u-navbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-navbar/u-navbar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-navbar/u-navbar.vue */ 254))
     },
     uAlert: function () {
       return Promise.all(/*! import() | uni_modules/uview-ui/components/u-alert/u-alert */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-alert/u-alert")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-alert/u-alert.vue */ 381))
@@ -216,13 +216,13 @@ var _default = {
   data: function data() {
     return {
       background: {
-        "background-image": "linear-gradient(45deg, #2BC3C8, #84E7B9)"
+        'background-image': 'linear-gradient(45deg, #2BC3C8, #84E7B9)'
       },
       closeAble: true,
       show: true,
       form: {
-        content: "",
-        link: ""
+        content: '',
+        link: ''
       }
     };
   },
@@ -231,9 +231,9 @@ var _default = {
     // 提交
     submit: function submit() {
       if (!this.form.content) {
-        return this.$common.errorToShow("请输入反馈内容");
+        return this.$common.errorToShow('请输入反馈内容');
       }
-      this.$common.successToShow("提交成功");
+      this.$common.successToShow('提交成功');
     },
     close: function close() {
       this.show = !this.show;

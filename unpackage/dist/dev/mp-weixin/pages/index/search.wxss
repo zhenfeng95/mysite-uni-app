@@ -1203,6 +1203,9 @@
 .markdown-body .highlight ._pre.data-v-64d2b7fe:has(+ .zeroclipboard-container) {
   min-height: 52px;
 }
+.search-wrap.data-v-64d2b7fe {
+  padding: 0 30rpx;
+}
 .title.data-v-64d2b7fe {
   font-size: 32rpx;
   font-weight: 700;

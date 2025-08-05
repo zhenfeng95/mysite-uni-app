@@ -30,32 +30,32 @@
 
 <script>
 export default {
-    data() {
+    data () {
         return {
             background: {
-                "background-image": "linear-gradient(45deg, #2BC3C8, #84E7B9)",
+                'background-image': 'linear-gradient(45deg, #2BC3C8, #84E7B9)'
             },
             closeAble: true,
             show: true,
             form: {
-                content: "",
-                link: "",
-            },
+                content: '',
+                link: ''
+            }
         };
     },
-    onLoad() {},
+    onLoad () {},
     methods: {
         // 提交
-        submit() {
+        submit () {
             if (!this.form.content) {
-                return this.$common.errorToShow("请输入反馈内容");
+                return this.$common.errorToShow('请输入反馈内容');
             }
-            this.$common.successToShow("提交成功");
+            this.$common.successToShow('提交成功');
         },
-        close() {
+        close () {
             this.show = !this.show;
-        },
-    },
+        }
+    }
 };
 </script>
 

@@ -52,40 +52,40 @@
 
 <script>
 export default {
-    data() {
+    data () {
         return {
             background: {
-                "background-image": "linear-gradient(45deg, #2BC3C8, #84E7B9)",
+                'background-image': 'linear-gradient(45deg, #2BC3C8, #84E7B9)'
             },
-            iconStyle: { color: "#2BC3C8" },
-            customStyle: { borderRadius: "88rpx" },
+            iconStyle: { color: '#2BC3C8' },
+            customStyle: { borderRadius: '88rpx' },
             show: false,
-            disabled: false,
+            disabled: false
         };
     },
-    onLoad() {},
+    onLoad () {},
     methods: {
-        calendarClick() {
+        calendarClick () {
             this.show = !this.show;
         },
-        toUrl(url) {
+        toUrl (url) {
             this.$common.navigateTo(url);
         },
         // 扫码不支持H5
-        scan() {
+        scan () {
             // #ifdef H5
-            this.$common.errorToShow("H5不支持扫码");
+            this.$common.errorToShow('H5不支持扫码');
             // #endif
             // #ifdef APP-PLUS || MP
             uni.scanCode({
                 success: function (res) {
-                    console.log("条码类型：" + res.scanType);
-                    console.log("条码内容：" + res.result);
-                },
+                    console.log('条码类型：' + res.scanType);
+                    console.log('条码内容：' + res.result);
+                }
             });
             // #endif
-        },
-    },
+        }
+    }
 };
 </script>
 

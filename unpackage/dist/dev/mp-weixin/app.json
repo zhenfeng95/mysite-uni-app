@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/index/search",
     "pages/mine/index",
     "pages/object/index",
     "pages/mine/heart",
@@ -16,7 +15,8 @@
     {
       "root": "packageA",
       "pages": [
-        "pages/index/detail"
+        "pages/index/detail",
+        "pages/search/search"
       ]
     }
   ],

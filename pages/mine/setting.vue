@@ -32,43 +32,43 @@
 
 <script>
 export default {
-    data() {
+    data () {
         return {
             background: {
-                "background-image": "linear-gradient(45deg, #2BC3C8, #84E7B9)",
+                'background-image': 'linear-gradient(45deg, #2BC3C8, #84E7B9)'
             },
             list: [
                 {
-                    text: "男",
-                    value: 1,
+                    text: '男',
+                    value: 1
                 },
                 {
-                    text: "女",
-                    value: 2,
-                },
+                    text: '女',
+                    value: 2
+                }
             ],
-            birthday: "2021-07-01",
+            birthday: '2021-07-01',
             gender: 1,
             showGender: false,
             showModal: false,
-            showPicker: false,
+            showPicker: false
         };
     },
-    onLoad() {},
+    onLoad () {},
     methods: {
-        clickGender(e) {
+        clickGender (e) {
             this.gender = this.list[e].value;
         },
-        confirm() {
+        confirm () {
             this.showModal = false;
         },
-        cancel() {
+        cancel () {
             this.showModal = false;
         },
-        pickerConfirm(e) {
-            this.birthday = e.year + "-" + e.month + "-" + e.day;
-        },
-    },
+        pickerConfirm (e) {
+            this.birthday = e.year + '-' + e.month + '-' + e.day;
+        }
+    }
 };
 </script>
 

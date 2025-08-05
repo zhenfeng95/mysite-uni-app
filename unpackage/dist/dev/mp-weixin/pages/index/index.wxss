@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .u-mr-0 {
   margin-right: 0rpx;
 }
@@ -302,6 +301,7 @@
 .u-mr-100 {
   margin-right: 100rpx;
 }
+
 /* light */
 .markdown-body {
   color-scheme: light;
@@ -1204,12 +1204,7 @@
   min-height: 52px;
 }
 .search-wrap {
-  margin-left: -200rpx;
-  width: 500rpx;
-}
-.main {
-  margin-top: 120rpx;
-  /* 避开头部 */
+  width: 60%;
 }
 .u-body-item {
   font-size: 32rpx;

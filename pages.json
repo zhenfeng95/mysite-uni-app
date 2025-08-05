@@ -19,12 +19,6 @@
             }
         },
         {
-            "path": "pages/index/search",
-            "style": {
-                "navigationBarTitleText": "搜索"
-            }
-        },
-        {
             "path": "pages/mine/index",
             "style": {
                 "navigationBarTitleText": "我的"
@@ -89,6 +83,12 @@
                     "path": "pages/index/detail",
                     "style": {
                         "navigationBarTitleText": "详情"
+                    }
+                },
+                {
+                    "path": "pages/search/search",
+                    "style": {
+                        "navigationBarTitleText": "搜索"
                     }
                 }
             ]

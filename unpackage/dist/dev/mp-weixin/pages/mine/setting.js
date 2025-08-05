@@ -101,7 +101,7 @@ var components
 try {
   components = {
     uNavbar: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-navbar/u-navbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-navbar/u-navbar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-navbar/u-navbar.vue */ 290))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-navbar/u-navbar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-navbar/u-navbar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-navbar/u-navbar.vue */ 254))
     },
     uCellGroup: function () {
       return Promise.all(/*! import() | uni_modules/uview-ui/components/u-cell-group/u-cell-group */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-cell-group/u-cell-group")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-cell-group/u-cell-group.vue */ 315))
@@ -232,16 +232,16 @@ var _default = {
   data: function data() {
     return {
       background: {
-        "background-image": "linear-gradient(45deg, #2BC3C8, #84E7B9)"
+        'background-image': 'linear-gradient(45deg, #2BC3C8, #84E7B9)'
       },
       list: [{
-        text: "男",
+        text: '男',
         value: 1
       }, {
-        text: "女",
+        text: '女',
         value: 2
       }],
-      birthday: "2021-07-01",
+      birthday: '2021-07-01',
       gender: 1,
       showGender: false,
       showModal: false,
@@ -260,7 +260,7 @@ var _default = {
       this.showModal = false;
     },
     pickerConfirm: function pickerConfirm(e) {
-      this.birthday = e.year + "-" + e.month + "-" + e.day;
+      this.birthday = e.year + '-' + e.month + '-' + e.day;
     }
   }
 };

@@ -35,55 +35,55 @@
 </template>
 
 <script>
-import { getBlogCategories } from "@/api";
+import { getBlogCategories } from '@/api';
 export default {
-    data() {
+    data () {
         return {
             background: {
-                "background-image": "linear-gradient(45deg, #2BC3C8, #84E7B9)",
+                'background-image': 'linear-gradient(45deg, #2BC3C8, #84E7B9)'
             },
             // top
             scrollTop: 0,
-            modeTop: "circle",
+            modeTop: 'circle',
             bottomTop: 200,
             rightTop: 40,
             top: 600,
-            iconTop: "arrow-up",
+            iconTop: 'arrow-up',
             iconStyleTop: {
-                color: "#ffffff",
-                fontSize: "30rpx",
+                color: '#ffffff',
+                fontSize: '30rpx'
             },
-            tips: "顶部",
-            blogTypeList: [],
+            tips: '顶部',
+            blogTypeList: []
         };
     },
-    onLoad() {
+    onLoad () {
         getBlogCategories().then((res) => {
             if (res.code == 0) {
                 this.blogTypeList = res.data;
             } else {
                 uni.showToast({
                     title: res.msg,
-                    icon: "none",
-                    duration: 1500,
+                    icon: 'none',
+                    duration: 1500
                 });
             }
         });
     },
     methods: {
-        toUrl(item) {
+        toUrl (item) {
             if (!item.articleCount) {
                 return;
             }
             this.$common.navigateTo(
-                "/pages/object/objectList?id=" + item.id + "&name=" + item.name
+                '/pages/object/objectList?id=' + item.id + '&name=' + item.name
             );
         },
         // 回到顶部
-        onPageScroll(e) {
+        onPageScroll (e) {
             this.scrollTop = e.scrollTop;
-        },
-    },
+        }
+    }
 };
 </script>
 
