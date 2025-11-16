@@ -19,35 +19,11 @@
             }
         },
         {
-            "path": "pages/mine/index",
-            "style": {
-                "navigationBarTitleText": "我的"
-            }
-        },
-        {
             "path": "pages/object/index",
             "style": {
                 "navigationBarTitleText": "分类",
                 "navigationStyle": "custom", // 隐藏系统导航栏
                 "navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
-            }
-        },
-        {
-            "path": "pages/mine/heart",
-            "style": {
-                "navigationBarTitleText": "收藏"
-            }
-        },
-        {
-            "path": "pages/mine/foot",
-            "style": {
-                "navigationBarTitleText": "足迹"
-            }
-        },
-        {
-            "path": "pages/mine/setting",
-            "style": {
-                "navigationBarTitleText": "设置"
             }
         },
         {
@@ -60,18 +36,6 @@
             "path": "pages/object/objectList",
             "style": {
                 "navigationBarTitleText": "分类列表"
-            }
-        },
-        {
-            "path": "pages/mine/message",
-            "style": {
-                "navigationBarTitleText": "消息"
-            }
-        },
-        {
-            "path": "pages/mine/feedback",
-            "style": {
-                "navigationBarTitleText": "反馈"
             }
         }
     ],
@@ -89,6 +53,12 @@
                     "path": "pages/search/search",
                     "style": {
                         "navigationBarTitleText": "搜索"
+                    }
+                },
+                {
+                    "path": "pages/auth/auth",
+                    "style": {
+                        "navigationBarTitleText": "微信登录"
                     }
                 }
             ]
@@ -119,12 +89,6 @@
                 "selectedIconPath": "static/tab/object_tab.png",
                 "text": "分类"
             }
-            // {
-            //     "pagePath": "pages/mine/index",
-            //     "iconPath": "./static/tab/mine.png",
-            //     "selectedIconPath": "./static/tab/mine_tab.png",
-            //     "text": "我的"
-            // }
         ]
     }
 }

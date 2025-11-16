@@ -1,1 +1,0 @@
-<view class="data-v-f029187a"><u-navbar vue-id="758385a3-1" title="收藏" backIconColor="#fff" titleColor="#fff" background="{{background}}" class="data-v-f029187a" bind:__l="__l"></u-navbar><c-list vue-id="758385a3-2" class="data-v-f029187a" bind:__l="__l"></c-list></view>

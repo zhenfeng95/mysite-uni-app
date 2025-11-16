@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { getBanners, getBlogs } from '@/api';
+import { wxlogin, getBanners, getBlogs } from '@/api';
 
 export default {
     data() {
@@ -69,11 +69,19 @@ export default {
         };
     },
     onLoad() {},
-    mounted() {
+    async mounted() {
         const systemInfo = uni.getSystemInfoSync();
         this.statusBarHeight = systemInfo.statusBarHeight;
         this.initBanner();
         this.initBlogs();
+        // const result = await uni.login();
+
+        // const [err, data] = result;
+        // if (data && data.code) {
+        //     wxlogin({ code: data.code }).then((res) => {
+        //         console.log(res);
+        //     });
+        // }
     },
     methods: {
         initBanner() {

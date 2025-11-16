@@ -1,22 +1,17 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/mine/index",
     "pages/object/index",
-    "pages/mine/heart",
-    "pages/mine/foot",
-    "pages/mine/setting",
     "pages/login/login",
-    "pages/object/objectList",
-    "pages/mine/message",
-    "pages/mine/feedback"
+    "pages/object/objectList"
   ],
   "subPackages": [
     {
       "root": "packageA",
       "pages": [
         "pages/index/detail",
-        "pages/search/search"
+        "pages/search/search",
+        "pages/auth/auth"
       ]
     }
   ],

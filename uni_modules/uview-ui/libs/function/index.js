@@ -684,7 +684,7 @@ function getHistoryPage(back = 0) {
  */
 function setConfig({
 	props = {},
-	config = {},
+    config = {},
 	color = {},
 	zIndex = {}
 }) {

@@ -101,19 +101,19 @@ var components
 try {
   components = {
     cNavbar: function () {
-      return __webpack_require__.e(/*! import() | components/navbar/navbar */ "components/navbar/navbar").then(__webpack_require__.bind(null, /*! @/components/navbar/navbar.vue */ 602))
+      return __webpack_require__.e(/*! import() | components/navbar/navbar */ "components/navbar/navbar").then(__webpack_require__.bind(null, /*! @/components/navbar/navbar.vue */ 220))
     },
     uSearch: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-search/u-search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-search/u-search")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-search/u-search.vue */ 262))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-search/u-search */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-search/u-search")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-search/u-search.vue */ 227))
     },
     mescrollUni: function () {
-      return Promise.all(/*! import() | uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni")]).then(__webpack_require__.bind(null, /*! @/uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni.vue */ 270))
+      return Promise.all(/*! import() | uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni")]).then(__webpack_require__.bind(null, /*! @/uni_modules/mescroll-uni/components/mescroll-uni/mescroll-uni.vue */ 235))
     },
     uSwiper: function () {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-swiper/u-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-swiper/u-swiper")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-swiper/u-swiper.vue */ 283))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-swiper/u-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-swiper/u-swiper")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-swiper/u-swiper.vue */ 248))
     },
     cList: function () {
-      return __webpack_require__.e(/*! import() | components/list/list */ "components/list/list").then(__webpack_require__.bind(null, /*! @/components/list/list.vue */ 291))
+      return __webpack_require__.e(/*! import() | components/list/list */ "components/list/list").then(__webpack_require__.bind(null, /*! @/components/list/list.vue */ 256))
     },
   }
 } catch (e) {
@@ -249,37 +249,59 @@ var _default = {
   },
   onLoad: function onLoad() {},
   mounted: function mounted() {
-    var systemInfo = uni.getSystemInfoSync();
-    this.statusBarHeight = systemInfo.statusBarHeight;
-    this.initBanner();
-    this.initBlogs();
+    var _this = this;
+    return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+      var systemInfo;
+      return _regenerator.default.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              systemInfo = uni.getSystemInfoSync();
+              _this.statusBarHeight = systemInfo.statusBarHeight;
+              _this.initBanner();
+              _this.initBlogs();
+              // const result = await uni.login();
+
+              // const [err, data] = result;
+              // if (data && data.code) {
+              //     wxlogin({ code: data.code }).then((res) => {
+              //         console.log(res);
+              //     });
+              // }
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
   },
   methods: {
     initBanner: function initBanner() {
-      var _this = this;
+      var _this2 = this;
       (0, _api.getBanners)().then(function (res) {
         if (res.code == 0) {
-          _this.swiper = res.data;
+          _this2.swiper = res.data;
         }
       });
     },
     initBlogs: function initBlogs() {
-      var _this2 = this;
-      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+      var _this3 = this;
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
         var data;
-        return _regenerator.default.wrap(function _callee$(_context) {
+        return _regenerator.default.wrap(function _callee2$(_context2) {
           while (1) {
-            switch (_context.prev = _context.next) {
+            switch (_context2.prev = _context2.next) {
               case 0:
                 data = {};
-                data.page = _this2.page;
-                data.limit = _this2.limit;
-                data.title = _this2.keyword;
+                data.page = _this3.page;
+                data.limit = _this3.limit;
+                data.title = _this3.keyword;
                 data.categoryid = -1;
-                _context.next = 7;
+                _context2.next = 7;
                 return (0, _api.getBlogs)(data).then(function (res) {
                   if (res.code == 0) {
-                    _this2.blogList = res.data.rows;
+                    _this3.blogList = res.data.rows;
                   } else {
                     uni.showToast({
                       title: res.msg,
@@ -290,10 +312,10 @@ var _default = {
                 });
               case 7:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee);
+        }, _callee2);
       }))();
     },
     toSearch: function toSearch() {
@@ -309,26 +331,26 @@ var _default = {
       this.$common.navigateTo('/packageA/pages/index/detail');
     },
     onRefresh: function onRefresh(mescroll) {
-      var _this3 = this;
-      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
-        return _regenerator.default.wrap(function _callee2$(_context2) {
+      var _this4 = this;
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
+        return _regenerator.default.wrap(function _callee3$(_context3) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context3.prev = _context3.next) {
               case 0:
-                _context2.next = 2;
-                return _this3.initBlogs(_this3.page, _this3.limit);
+                _context3.next = 2;
+                return _this4.initBlogs(_this4.page, _this4.limit);
               case 2:
                 mescroll.endSuccess(); // 结束刷新
               case 3:
               case "end":
-                return _context2.stop();
+                return _context3.stop();
             }
           }
-        }, _callee2);
+        }, _callee3);
       }))();
     },
     onLoadMore: function onLoadMore(mescroll) {
-      var _this4 = this;
+      var _this5 = this;
       var pageSize = mescroll.size;
       var data = {};
       data.page = mescroll.num;
@@ -344,7 +366,7 @@ var _default = {
             mescroll.endSuccess(); // 正常加载
           }
 
-          _this4.blogList = [].concat((0, _toConsumableArray2.default)(_this4.blogList), (0, _toConsumableArray2.default)(newData));
+          _this5.blogList = [].concat((0, _toConsumableArray2.default)(_this5.blogList), (0, _toConsumableArray2.default)(newData));
         } else {
           uni.showToast({
             title: res.msg,

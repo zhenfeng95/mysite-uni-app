@@ -15,10 +15,10 @@ App.mpType = 'app';
 import uView from '@/uni_modules/uview-ui';
 Vue.use(uView);
 
-// import { $u } from '@/utils/uview-tools';
-// Vue.prototype.$u = $u;
+// import * as uFunctions from '@/uni_modules/uview-ui/libs/function/index.js';
+// Vue.prototype.$u = uFunctions.default;
 
 const app = new Vue({
-    ...App
+    ...App,
 });
 app.$mount();

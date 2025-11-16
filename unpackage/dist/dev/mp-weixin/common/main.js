@@ -34,8 +34,8 @@ _App.default.mpType = 'app';
 
 _vue.default.use(_uviewUi.default);
 
-// import { $u } from '@/utils/uview-tools';
-// Vue.prototype.$u = $u;
+// import * as uFunctions from '@/uni_modules/uview-ui/libs/function/index.js';
+// Vue.prototype.$u = uFunctions.default;
 
 var app = new _vue.default(_objectSpread({}, _App.default));
 createApp(app).$mount();

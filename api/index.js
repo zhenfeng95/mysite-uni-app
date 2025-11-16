@@ -1,6 +1,13 @@
 import * as Api from './http';
 
 /**
+ * 微信登录
+ */
+export async function wxlogin(data) {
+    return await Api.post('/api/admin/wxlogin', data);
+}
+
+/**
  * 获取轮播图
  */
 export async function getBanners() {

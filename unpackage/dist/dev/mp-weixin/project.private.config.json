@@ -1,0 +1,15 @@
+{
+    "condition": {
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "packageA/pages/auth/auth",
+                    "pathName": "packageA/pages/auth/auth",
+                    "query": "",
+                    "scene": null,
+                    "launchMode": "default"
+                }
+            ]
+        }
+    }
+}

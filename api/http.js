@@ -2,21 +2,24 @@ import * as common from '../config/common.js'; //引入common
 import * as db from '../config/db.js'; //引入db
 
 let domain = 'https://zzf.net.cn';
+// let domain = 'http://localhost:3001';
 // #ifdef H5
 domain = '';
 // #endif
 
 // 需要登陆的，都写到这里，否则就是不需要登陆的接口
 const methodsLogin = [];
+
 //POST方法
+
 export const post = async (method, data) => {
     return new Promise((resole, reject) => {
         uni.showLoading({
-            title: '加载中'
+            title: '加载中',
         });
         let header = {
             Accept: 'application/json',
-            'Content-Type': 'application/json' //自定义请求头信息
+            'Content-Type': 'application/json', //自定义请求头信息
         };
         // 判断token是否存在
         if (methodsLogin.indexOf(method) >= 0) {
@@ -24,7 +27,7 @@ export const post = async (method, data) => {
             let token = db.token();
             if (!token) {
                 uni.navigateTo({
-                    url: '/pages/login/login'
+                    url: '/pages/login/login',
                 });
                 return;
             } else {
@@ -36,7 +39,7 @@ export const post = async (method, data) => {
             header: header,
             data: data,
             method: 'POST',
-            success: response => {
+            success: (response) => {
                 const result = response.data;
                 // 登录信息过期或者未登录
                 if (result.code == 401) {
@@ -49,10 +52,10 @@ export const post = async (method, data) => {
                             setTimeout(function () {
                                 uni.hideToast();
                                 uni.navigateTo({
-                                    url: '/pages/login/login'
+                                    url: '/pages/login/login',
                                 });
                             }, 1000);
-                        }
+                        },
                     });
                 }
                 resole(result);
@@ -62,13 +65,13 @@ export const post = async (method, data) => {
                     uni.hideLoading();
                 }, 250);
             },
-            fail: error => {
+            fail: (error) => {
                 //console.log('post e',error)
                 resole({});
                 if (error && error.response) {
                     showError(error.response);
                 }
-            }
+            },
         });
     });
 };
@@ -76,11 +79,11 @@ export const post = async (method, data) => {
 export const get = async (url, data = {}) => {
     return new Promise((resole, reject) => {
         uni.showLoading({
-            title: '加载中'
+            title: '加载中',
         });
         let header = {
             Accept: 'application/json',
-            'Content-Type': 'application/json' //自定义请求头信息
+            'Content-Type': 'application/json', //自定义请求头信息
         };
         // 判断token是否存在
         if (methodsLogin.indexOf(url) >= 0) {
@@ -88,7 +91,7 @@ export const get = async (url, data = {}) => {
             let token = db.token();
             if (!token) {
                 uni.navigateTo({
-                    url: '/pages/login/login'
+                    url: '/pages/login/login',
                 });
                 return;
             } else {
@@ -100,7 +103,7 @@ export const get = async (url, data = {}) => {
             data: data,
             header: header,
             method: 'GET',
-            success: response => {
+            success: (response) => {
                 //console.log('res',response)
                 uni.hideLoading();
                 const result = response.data;
@@ -114,30 +117,30 @@ export const get = async (url, data = {}) => {
                             setTimeout(function () {
                                 uni.hideToast();
                                 uni.navigateTo({
-                                    url: '/pages/login/login'
+                                    url: '/pages/login/login',
                                 });
                             }, 1000);
-                        }
+                        },
                     });
                 }
                 resole(result);
             },
-            fail: error => {
+            fail: (error) => {
                 resole({});
                 if (error && error.response) {
                     showError(error.response);
                 }
             },
-            complete: cop => {
+            complete: (cop) => {
                 setTimeout(function () {
                     uni.hideLoading();
                 }, 250);
-            }
+            },
         });
     });
 };
 //统一处理请求错误
-const showError = error => {
+const showError = (error) => {
     let errorMsg = '';
     switch (error.status) {
         case 400:
@@ -179,7 +182,7 @@ const showError = error => {
             setTimeout(function () {
                 uni.hideToast();
             }, 1000);
-        }
+        },
     });
 };
 
